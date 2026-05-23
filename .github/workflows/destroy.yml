@@ -12,12 +12,11 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Configurar AWS CLI
-    
       uses: aws-actions/configure-aws-credentials@v3
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-session-token: ${{ secrets.AWS_SESSION_TOKEN}}
+        aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
         aws-region: us-east-1
 
     - name: Instalar Terraform
@@ -26,8 +25,14 @@ jobs:
     - name: Inicializar Terraform
       run: terraform init
 
-    - name: Destrui infraestructura con Terraform
+    - name: Recuperar estado desde S3
+      run: aws s3 cp s3://${{ secrets.BUCKET }}/terraform.tfstate terraform.tfstate
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
+        AWS_DEFAULT_REGION: us-east-1
+      continue-on-error: false
+
+    - name: Destruir infraestructura con Terraform
       run: terraform destroy -auto-approve
-
-
-

@@ -2,15 +2,6 @@ provider "aws" {
   region = "us-east-1"  # Cambia la región según tu necesidad
 }
 
-resource "aws_s3_bucket" "terraform_state" {
-  bucket        = "mi-app-tf-estado-mck21"
-  force_destroy = true
-
-  tags = {
-    Name = "TerraformStateBucket"
-  }
-}
-
 resource "aws_security_group" "app_sg" {
   name        = "app-security-group"
   description = "Permite trafico HTTP y SSH"
