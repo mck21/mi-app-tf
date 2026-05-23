@@ -37,14 +37,18 @@ jobs:
       - name: Aplicar Terraform
         run: terraform apply -auto-approve
 
+      - name: Buscar tfstate
+        run: find . -name "terraform.tfstate"
+
       - name: Guardar estado en S3
         id: copyfrom
         run: aws s3 cp terraform.tfstate s3://${{ secrets.BUCKET }}/terraform.tfstate
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
           AWS_DEFAULT_REGION: us-east-1
-        continue-on-error: true
+        continue-on-error: false
 
   terraform_destroy:
     name: "Terraform_destroy"
