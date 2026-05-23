@@ -1,3 +1,24 @@
 # Ignorar archivos .DS_Store en macOS
 .DS_Store
 
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+*.auto.tfvars
+
+# Node / npm
+node_modules/
+npm-debug.log
+
+# Docker / runtime logs
+*.log
+
+# IDE / editor settings
+.vscode/
+.idea/
+
+# Environment files (secrets)
+.env
+*.env
