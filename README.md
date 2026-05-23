@@ -1,9 +1,9 @@
 # mi-app-tf
 
-![Deploy](https://img.shields.io/github/actions/workflow/status/mck21/mi-app-tf/deploy.yml?label=deploy&style=flat-square)
-![Terraform](https://img.shields.io/badge/terraform-1.x-7B42BC?style=flat-square&logo=terraform)
-![Docker](https://img.shields.io/badge/docker-ready-2496ED?style=flat-square&logo=docker)
-![AWS](https://img.shields.io/badge/AWS-EC2%20%2B%20S3-FF9900?style=flat-square&logo=amazonaws)
+<img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white" alt="GitHub Actions"/>
+<img src="https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white" alt="Terraform"/>
+<img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"/>
+<img src="https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white" alt="AWS"/>
 
 Automatic deployment of a Node.js app on AWS using GitHub Actions + Terraform + Docker.
 
