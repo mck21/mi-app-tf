@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - name: Say hello
-      run: echo "hola meloncetes"
+      run: echo "hola melon"
       
     - name: Checkout del código
       uses: actions/checkout@v3
